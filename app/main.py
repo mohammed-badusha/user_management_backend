@@ -57,3 +57,4 @@ def add_sample_user():
 
 app.include_router(user_router)
 
+# Backend structure cleanup - PR demo
