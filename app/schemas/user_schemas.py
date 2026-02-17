@@ -3,8 +3,7 @@ from datetime import datetime, date
 from typing import List, Optional
 
 
-# ✅ Allowed country codes (trainer പറഞ്ഞത് പോലെ invalid country code reject ചെയ്യാൻ)
-# നിങ്ങൾക്ക് വേണമെങ്കിൽ add/remove ചെയ്യാം
+
 ALLOWED_COUNTRY_CODES = {91, 1, 44, 971, 966, 61, 65}
 
 
@@ -28,8 +27,6 @@ def validate_phone(phone: str) -> str:
     if len(digits) < 7 or len(digits) > 15:
         raise ValueError("Phone must have 7 to 15 digits (excluding +)")
 
-    # Extract country code (1 to 3 digits typical; we check against allowed list)
-    # We'll try 1, 2, 3 digit codes and match allowed list.
     cc = None
     for n in (1, 2, 3):
         if len(digits) >= n:
@@ -41,7 +38,7 @@ def validate_phone(phone: str) -> str:
     if cc is None:
         raise ValueError("Invalid/unsupported country code")
 
-    return v  # Keep as stored value (E.164-like)
+    return v  
 
 
 class UserCreate(BaseModel):
