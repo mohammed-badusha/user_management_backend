@@ -11,3 +11,15 @@ __pycache__/
 
 # VS Code
 .vscode/
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# VS Code
+.vscode/
+
+# Environment files
+.env
